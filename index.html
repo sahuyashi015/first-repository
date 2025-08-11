@@ -1,0 +1,95 @@
+<!-- Updated HTML+CSS Resume Template with PDF Download Button and Technical Skills Display -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Yashi Sahu — Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;background:#f8fafc;color:#0f172a;padding:20px}
+    .resume{max-width:900px;margin:0 auto;background:#fff;padding:28px;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.08)}
+    header{display:flex;align-items:center;gap:20px;border-bottom:1px solid #eef2f7;padding-bottom:16px;margin-bottom:18px}
+    .avatar{width:86px;height:86px;border-radius:10px;background:linear-gradient(135deg,#0ea5a4,#38bdf8);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:28px}
+    h1{margin:0;font-size:20px}
+    .subtitle{color:#6b7280;font-size:14px;margin-top:4px}
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .skill{background:#eef8f7;padding:6px 8px;border-radius:6px;font-size:13px;color:#064e47}
+    .section{margin-bottom:16px}
+    h2{font-size:14px;margin-bottom:6px}
+    footer{text-align:center;color:#6b7280;font-size:13px;margin-top:18px}
+    #downloadBtn{background:#0ea5a4;color:#fff;border:none;padding:8px 14px;border-radius:6px;cursor:pointer;font-size:14px;float:right}
+    #downloadBtn:hover{background:#0c8a83}
+  </style>
+</head>
+<body>
+  <div class="resume" id="resumeContent">
+    <header>
+      <div class="avatar">YS</div>
+      <div>
+        <h1>Yashi Sahu</h1>
+        <div class="subtitle">B.Tech Student — Computer Science | Seeking Software Engineering Internship</div>
+        <div style="margin-top:8px;color:#6b7280;font-size:13px">
+          Kanpur, Uttar Pradesh • +91 98765 43210 • sahuyashi38@gmail.com • github.com/yashisahu
+        </div>
+      </div>
+    </header>
+
+    <button id="downloadBtn">Download as PDF</button>
+
+    <section class="section">
+      <h2>Career Objective</h2>
+      <p>Motivated B.Tech Computer Science student aiming to apply academic knowledge to real-world projects. Passionate about web development and problem-solving.</p>
+    </section>
+
+    <section class="section">
+      <h2>Technical Skills</h2>
+      <div class="skills">
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">Java</span>
+        <span class="skill">C++</span>
+        <span class="skill">Git & GitHub</span>
+        <span class="skill">Responsive Design</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Projects</h2>
+      <p><strong>Personal Portfolio Website</strong> — Developed a responsive personal website using HTML, CSS, and JavaScript. Hosted on GitHub Pages.</p>
+    
+    </section>
+
+    <section class="section">
+      <h2>Education</h2>
+      <p>B.Tech — Computer Science, Prabhat Engineering College, AKTU (2023–2027) | CGPA: 7.8/10</p>
+    </section>
+
+    <section class="section">
+      <h2>Certifications</h2>
+      <p>- HTML & CSS Fundamentals<br>- Git & GitHub Basics</p>
+    </section>
+
+    <footer>
+      <small>Declaration: I hereby declare that the above information is true to the best of my knowledge.</small>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF('p', 'pt', 'a4');
+      doc.html(document.getElementById('resumeContent'), {
+        callback: function (pdf) {
+          pdf.save('Yashi_Sahu_Resume.pdf');
+        },
+        margin: [20, 20, 20, 20],
+        autoPaging: 'text',
+        html2canvas: { scale: 0.7 }
+      });
+    });
+  </script>
+</body>
+</html>
